@@ -67,8 +67,8 @@ class DataProcessor:
         if self.filtered_data is None:
             raise ValueError("Data must be filtered before normalization. Run .filter_moving_average() first.")
             
-        min_val = allMin
-        max_val = allMax
+        min_val = self.globalMin
+        max_val = self.globalMax
         
         # Avoid division by zero if the data is flat (all values are the same)
         if max_val - min_val == 0:

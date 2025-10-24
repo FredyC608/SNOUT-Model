@@ -58,7 +58,7 @@ def generate_training_data(simulator, processor, extractor, n_samples=200):
             # TODO: need to get the minimum in the simulator accounting for baseline noise
             
             # 2. Process
-            proc = DataProcessor(raw_data)
+            proc = DataProcessor(raw_data, simMin, simMax)
             processed_data = proc.process(filter_window_size=15)
             
             # 3. Extract Features
@@ -95,7 +95,7 @@ def main():
     demo_raw_data = sim.generate_stream(stream_length=2000, events=demo_events)
     
     # 2. Process
-    demo_processor = DataProcessor(demo_raw_data)
+    demo_processor = DataProcessor(demo_raw_data, (sim.baseline_level - sim.drift_amplitude), sim.max_val)
     demo_normalized_data = demo_processor.process(filter_window_size=15)
     demo_filtered_data = demo_processor.filtered_data # Get intermediate step for plotting
     
