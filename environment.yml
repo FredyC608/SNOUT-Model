@@ -1,0 +1,7 @@
+name: turtle
+channels:
+  - defaults
+dependencies:
+  - python=3.12
+  - tabulate
+prefix: C:\Users\fredy\miniconda3\envs\turtle
